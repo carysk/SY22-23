@@ -7,7 +7,38 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="162,235,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Margin="225,235,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="303*"/>
+            <RowDefinition Height="131*"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.ColumnSpan="3">
+            <MenuItem Header="_Edit">
+                <MenuItem Command="ApplicationCommands.Copy"/>
+                <MenuItem Command="ApplicationCommands.Cut"/>
+                <MenuItem Command="ApplicationCommands.Paste"/>
+            </MenuItem>
+            <MenuItem Header="_Font">
+                <MenuItem Header="_Bold" IsCheckable="True"
+              Checked="Bold_Checked"
+              Unchecked="Bold_Unchecked"/>
+                <MenuItem Header="_Italic" IsCheckable="True"
+              Checked="Italic_Checked"
+              Unchecked="Italic_Unchecked"/>
+                <Separator/>
+                <MenuItem Header="I_ncrease Font Size"
+              Click="IncreaseFont_Click"/>
+                <MenuItem Header="_Decrease Font Size"
+              Click="DecreaseFont_Click"/>
+            </MenuItem>
+        </Menu>
+        <TextBox Name="textBox1" TextWrapping="Wrap"
+         Margin="0,23,4,112" Grid.RowSpan="2" Grid.ColumnSpan="3">
+            The quick brown fox jumps over the lazy dog.
+        </TextBox>
     </Grid>
 </Window>
